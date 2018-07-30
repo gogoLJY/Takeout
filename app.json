@@ -1,21 +1,10 @@
 {
   "pages": [
-    
     "pages/home/home",
     "pages/map/map",
     "pages/opinion/opinion",
-    "pages/community/community",
-    "pages/publicComment/publicComment",
-    "pages/publicLetter/publicLetter",
-    "pages/chart/chart",
-    "pages/keepAccount/keepAccount",
-    "pages/detailType/detailType",
+    "pages/order/order",
     "pages/about/about",
-    "pages/publicTopic/publicTopic",
-    "pages/replyComment/replyComment",
-    "pages/allcomment/allcomment",
-    "pages/editAccount/editAccount",
-    "pages/addbudget/addbudget",
     "pages/my/my"
   ],
   "tabBar": {
@@ -30,7 +19,7 @@
         "selectedIconPath": "/images/home_1.png"
       },
       {
-        "pagePath": "pages/community/community",
+        "pagePath": "pages/order/order",
         "text": "社区",
         "iconPath": "/images/order.png",
         "selectedIconPath": "/images/order_1.png"
@@ -44,7 +33,7 @@
     ]
   },
   "window": {
-    "navigationBarBackgroundColor": "#538afe",
+    "navigationBarBackgroundColor": "#FDBD27",
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "英皇外卖",
     "backgroundColor": "#363636",

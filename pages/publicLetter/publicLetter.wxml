@@ -1,8 +1,0 @@
-<form bindsubmit='onSubmit'>
-  <view class='public-main'>
-    <textarea class='public-text' name="content" placeholder='说说你的想法' type='text' confirm-type='done' maxlength='255' bindinput="onTextAreaInput"></textarea>
-  </view>
-  <view class='public-btn-box'>
-      <button class='public-btn' formType="submit">发布</button>
-  </view>
-</form>

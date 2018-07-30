@@ -1,6 +1,6 @@
 import { Base } from '../../utils/base.js';
 
-class Community extends Base {
+class Order extends Base {
   constructor() {
     super();
   }
@@ -27,4 +27,4 @@ class Community extends Base {
   }
 }
 
-export { Community };
+export { Order };

@@ -1,6 +1,6 @@
-import { Community } from 'community-model.js';
+import { Order } from 'order-model.js';
 import { Layer } from '../../utils/layer.js';
-var community = new Community();
+var order = new Order();
 Page({
   data: {
     loading: true,
