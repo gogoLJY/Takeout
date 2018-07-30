@@ -1,0 +1,76 @@
+/* pages/my/my.wxss */
+page{
+  background-color: #f5f5f5;
+}
+.my-main {
+  padding-bottom: 80rpx;
+ 
+}
+.user-box {
+	box-shadow: 0 1rpx 13rpx 0 rgba(185, 185, 185, 0.27);
+  text-align: center;
+  background-size: 100%;
+  background-repeat:no-repeat;
+  padding-top: 40rpx;
+  padding-bottom: 20rpx;
+}
+.avatar {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+  border: 5rpx solid #fff;
+}
+.nickname {
+  font-size: 32rpx;
+  color: #fff;
+}
+/* me-btn */
+.me-btns{
+  margin-top: 20rpx;
+}
+.opinion-left,.me-btns-item{
+   display: flex;
+   align-items: center;
+}
+.me-btns-item{
+  justify-content: space-between;
+  font-size:36rpx;
+  padding:0 40rpx;
+  height:110rpx;
+  background-color:rgba(255, 255, 255, 0.8); 
+  color: #333;
+}
+.me-btns-item:not(:first-of-type){
+  border-top:1rpx solid #dcdcdc;
+}
+.me-btns-item .icon{
+  width:20rpx;
+  height:20rpx;
+  border-top:3.5rpx solid #777;
+  border-right:3.5rpx solid #777;
+  transform:rotate(45deg);
+}
+.me-btns-item text{
+  margin-left: 40rpx;
+}
+.about-item {
+  border-top: none!important;
+  margin-top: 20rpx;
+}
+.btn-box{
+  min-height: 1026rpx;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content{
+  color: #9c9c9c;
+}
+.me-img{
+  width: 36rpx;
+  height: 36rpx;
+}

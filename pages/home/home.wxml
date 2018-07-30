@@ -1,0 +1,125 @@
+<view hidden='{{loading}}'>
+<view class='home-main' hidden='{{!isRegister}}'>
+  <view class='content-top'>
+    <view class='content-time'>
+      <view class='time-box'>
+        <view class="form-item-bd">
+          <picker mode="date" value="{{startDate}}" start="{{preDate}}" end="{{EndDate}}" fields="month" bindchange="changeTime">
+              <block wx:if="{{time == ''}}">
+                <view class="input">{{startDate}}</view>
+              </block>
+              <block wx:else>
+                <view class="input">{{time}}</view>
+              </block>
+          </picker>
+        </view>
+        <text class='triangle'></text>
+      </view>
+      <image src='../../images/chart.png' class='chart-img' bindtap='onChart'></image>
+    </view>
+    <view class='account-box'>
+      <text>日常账单</text>
+      <view class='budget-box'>
+        <view wx:if="{{bill.budget != 0}}">
+          <text class='budget-text'>￥{{bill.budget}}</text>
+          <button class="left-text {{changeColor? 'activeColor':''}}" disabled='{{!settleDisabled}}' bindtap='onAddBudget'>剩余 {{bill.detail.balance}}</button>
+        </view>
+        <view wx:elif="{{bill.budget === 0}}">
+           <text class='budget-text'>￥0.00</text>
+           <button class='left-text' bindtap='onAddBudget' disabled='{{!settleDisabled}}'>添加预算</button>
+        </view>
+      </view>
+      <view class='Inoutcome'>
+        <view class='income'>
+          <view class='come-text'>{{changeTime}}收入</view>
+          <view class='come-price'>￥{{bill.detail.income}}</view>
+        </view>
+        <view class='line'></view>
+        <view class='outcome'>
+          <view class='come-text'>{{changeTime}}支出</view>
+          <view class='come-price'>￥{{bill.detail.spending}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='content-middle'>
+    <view class='tab-box'>
+      <view class="tab-nav {{curIndex === 0 ?'on item-active':''}}" bindtap="onTab" data-index="0">所有</view>
+      <view class="tab-nav {{curIndex === 1 ?'on item-active':''}}" bindtap="onTab" data-index="1">支出</view>
+      <view class="tab-nav {{curIndex === 2 ?'on item-active':''}}" bindtap="onTab" data-index="2">收入</view>  
+    </view>
+    <view class='tab-content'>
+      <view wx:if="{{curIndex === 0}}">
+        <block wx:for="{{bill.bill}}">
+          <view class='come-list'>
+            <text class='come-time'>{{item.time}}</text>
+            <view class='come-item' bindtap='onEditAccount' data-id='{{item.id}}'>
+              <view class='come-item-left'>
+                <image class='cha-img' src='https://x2018062501.aweyu.cn{{item.category.icon[0].url}}'></image>
+                <view class='img-desc'>
+                  <text class='desc-title'>{{item.category.category_name}}</text>
+                  <text class='desc-con'>{{item.note}}</text>
+                </view>
+              </view>
+              <view class='item-come-price'>￥{{item.price}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+      <view wx:if="{{curIndex === 1}}">
+        <block wx:for="{{spending}}">
+        <view class='come-list'>
+          <text class='come-time'>{{item.time}}</text>
+          <view class='come-item' bindtap='onEditAccount' data-id='{{item.id}}'>
+            <view class='come-item-left'>
+              <image class='cha-img' src='https://x2018062501.aweyu.cn{{item.category.icon[0].url}}'></image>
+              <view class='img-desc'>
+                <text class='desc-title'>{{item.category.category_name}}</text>
+                <text class='desc-con'>{{item.note}}</text>
+              </view>
+            </view>
+            <view class='item-come-price'>￥{{item.price}}</view>
+          </view>
+        </view>
+        </block>
+      </view>
+      <view wx:if="{{curIndex === 2}}">
+        <block wx:for="{{income}}">
+        <view class='come-list'>
+          <text class='come-time'>{{item.time}}</text>
+          <view class='come-item' bindtap='onEditAccount' data-id='{{item.id}}'>
+            <view class='come-item-left'>
+              <image class='cha-img' src='https://x2018062501.aweyu.cn{{item.category.icon[0].url}}'></image>
+              <view class='img-desc'>
+                <text class='desc-title'>{{item.category.category_name}}</text>
+                <text class='desc-con'>{{item.note}}</text>
+              </view>
+            </view>
+            <view class='item-come-price'>￥{{item.price}}</view>
+          </view>
+        </view>
+        </block>
+      </view>  
+    </view>
+  </view>
+  <view class='content-footer' bindtap='onKeepAccount' hidden='{{hideAccount}}'>
+    <image src='../../images/account_btn.png' class='account-btn-img'></image>
+  </view>
+  <view class='mask' hidden='{{hideAlert}}'></view>
+  <view class='alert-box' hidden='{{hideAlert}}'>
+    <view class='alert-content'>
+      <image src='../../images/alter.png' class='alert-img'></image>
+      <image src='../../images/start.png' class='start-img'></image>
+      <view class='ellipse'></view>
+    </view>
+    <text class='con-text'>{{AlertText}}</text>
+    <text class='know-text' bindtap='onHideAlert'>知道了</text>
+  </view>
+</view>
+<view class='welcome-box' hidden='{{isRegister}}'>
+  <button open-type="getUserInfo" type='primary' bindgetuserinfo="login" class='primary-btn'>欢迎使用李才人</button>
+</view>
+</view>
+<loading hidden='{{!loading}}'>
+  加载中...
+</loading>

@@ -1,0 +1,30 @@
+var formatTime = function (str) {
+  if(!str)
+   return ;
+  var date = str.split(' ')[0];
+  var time = str.split(' ')[1];
+  
+  var year = date.split('-')[0];
+  var month = date.split('-')[1];
+  var day = date.split('-')[2];
+  var hour = time.split(':')[0];
+  var minute = time.split(':')[1];
+  var second = time.split(':')[2];
+
+  return [year, month, day].map(formatNumber).join('.') + ' ' + [hour, minute].map(formatNumber).join(':')
+}
+
+var formatNumber = function (n) {
+  n = n.toString()
+  return n[1] ? n : '0' + n
+}
+var compare = function(systime,str) {
+    resData = str.replace('-', '/').replace('-', '/');
+    var timestamp2 = Date.parse(resData);
+    timestamp2 = timestamp2 / 1000;
+    return timestamp2;
+}
+module.exports = {
+  formatTime: formatTime,
+  compare: compare
+};

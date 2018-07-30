@@ -1,0 +1,59 @@
+<view class='reply-main' hidden='{{loading}}'>
+  <view class='community-item'>
+    <view class='community-item-top'>
+      <image src='{{detailComment.user.avatar}}' class='publisher-img'></image>
+      <view class='item-desc'>
+        <text class='publisher-name'>{{detailComment.user.nickname}}</text>
+        <text class='desc-content'>{{detailComment.content}}</text>
+      </view>
+    </view>
+    <scroll-view class="image-group" scroll-x="true">
+      <block wx:for="{{detailComment.image}}">
+        <image src="{{item.url}}" class='scroll-item-img' mode='aspectFill' data-src='{{item.url}}' bindtap="onPreviewImage"></image>
+      </block>
+    </scroll-view>
+    <text class='community-time'>{{detailComment.time}}</text>
+    <view class='line'></view>
+    <view class='community-item-footer'>
+      <view class='browse-box'>
+        <image src='../../images/browse.png' class='browse-img'></image>
+        <text class='visit-text'>{{detailComment.view}}访问</text>
+      </view>
+      <view class='community-item-footer-right'>
+        <view class='like-box'>
+          <image src='../../images/like.png' hidden='{{isLike == 1}}' class='like-img' bindtap='onLike'></image>
+          <image src='../../images/like_active.png' hidden='{{!(isLike == 1)}}' class='like-img' bindtap='onLikeActive'></image>
+          <text class='like-num'>{{like_count}}</text>
+        </view>
+        <view class='comment-box' bindtap='onAllcomment'>
+          <image src='../../images/comment.png' class='comment-img'></image>
+          <text class='comment-num'>{{detailComment.comments_count}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='null-comment' wx:if="{{detailComment.comments == ''}}">
+    暂无评论
+  </view>
+  <view class='comment-content-box' wx:else>
+    <text class='comment-account'>{{detailComment.comments_count}}评论</text>
+    <block wx:for="{{detailComment.comments}}">
+    <view class='comment-user-box'>
+      <image src='{{item.user.avatar}}' class='publisher-img'></image>
+      <view class='item-desc'>
+        <text class='publisher-name'>{{item.user.nickname}}</text>
+        <text class='desc-content'>{{item.content}}</text>
+      </view>
+    </view>
+    <view class='community-item-footer comment-footer'>
+      <text class='comment-time'>{{item.time}}</text>
+    </view>
+    </block>
+  </view>
+  <view class='public-box' bindtap='onPublicComment'>
+    <image src='../../images/public.png' class='public-img'></image>
+  </view>
+</view>
+<loading hidden='{{!loading}}'>
+  加载中...
+</loading>

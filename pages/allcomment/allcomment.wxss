@@ -1,0 +1,71 @@
+page{
+  background-color: #f5f5f5;
+}
+.allcomment-main{
+  width: 750rpx;
+  color: #333;
+  font-size: 32rpx;
+}
+.comment-item{
+	min-height: 182rpx;
+	background-color: #ffffff;
+	box-shadow: 0 1rpx 13rpx 0 rgba(185, 185, 185, 0.27);
+  padding: 20rpx 25rpx;
+  margin-bottom: 20rpx;
+}
+.comment-item{
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-user-desc,.user-box,.comment-content-box{
+  display: flex;
+}
+.comment-user-desc{
+  flex-direction: column;
+  margin-left: 20rpx;
+}
+.user-img{
+  width: 72rpx;
+	height: 72rpx;
+  border-radius: 50%;
+}
+.time-text{
+  font-size: 28rpx;
+  color: #666;
+}
+.time-text{
+  margin-top: 10rpx;
+}
+.comment-desc,.time-text{
+  display: block;
+}
+.comment-desc{
+  margin-top: 20rpx;
+}
+.comment-img{
+  width: 175rpx;
+	height: 175rpx;
+}
+.more-text{
+  text-align: center;
+  font-size: 32rpx;
+	color: #999999;
+  margin-top: 40rpx;
+}
+.comment-content-box{
+  margin: 40rpx 0 0 0;
+  padding: 60rpx 25rpx;
+  background-color: #f5f5f5;
+  font-size: 28rpx;
+}
+.comment-content-user-name{
+  color: #538afe;
+}
+.comment-content-desc{
+  display: block;
+  width: 450rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

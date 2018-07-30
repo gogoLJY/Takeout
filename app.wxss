@@ -1,0 +1,11 @@
+page{
+  font-family: PingFang-SC-Medium;
+}
+.edit-save-btn,.budget-save-btn,.public-btn{
+  color: #fff;
+	height: 90rpx;
+  line-height: 90rpx;
+	background-color: #538afe;
+	box-shadow: 0 8rpx 18rpx 2rpx rgba(83, 138, 254, 0.25);
+	border-radius: 37rpx;
+}

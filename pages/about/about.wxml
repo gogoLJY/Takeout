@@ -1,0 +1,8 @@
+<view class='about-main'>
+  <image src='../../images/logo.jpg' class='logo-img'></image>
+  <text class='content'>李才人</text>
+  <view class='about-phone-box'>
+    <text class=''>©李才人 官方电话：</text>
+    <text class='phone-text' bindtap='onphone'>{{phone}}</text>
+  </view>
+</view>

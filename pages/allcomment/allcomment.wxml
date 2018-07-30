@@ -1,0 +1,39 @@
+<view class='allcomment-main'>
+  <block wx:for="{{like}}">
+  <view class='comment-item'>
+    <view class='comment-item-top'>
+      <view class='user-box'>
+        <image src='{{item.user.avatar}}' class='user-img'></image>
+        <view class='comment-user-desc'>
+          <text class='user-name'>{{item.user.nickname}}</text>
+          <text class='time-text'>{{item.time}}</text>
+        </view>
+      </view>
+      <text class='comment-desc'>点赞了你</text>
+    </view>
+    <view class='comment-content-box' data-id='{{item.post_id}}' bindtap='ondetail'>
+      <text class='comment-content-user-name'>{{item.post.user.nickname}}：</text>
+      <text class='comment-content-desc'>{{item.post.content}}</text>
+    </view>
+  </view>
+  </block>
+  <block wx:for="{{comment}}">
+  <view class='comment-item'>
+    <view class='comment-item-top'>
+      <view class='user-box'>
+        <image src='{{item.user.avatar}}' class='user-img'></image>
+        <view class='comment-user-desc'>
+          <text class='user-name'>{{item.user.nickname}}</text>
+          <text class='time-text'>{{item.time}}</text>
+        </view>
+      </view>
+      <text class='comment-desc'>评论了你</text>
+    </view>
+    <view class='comment-content-box' data-id='{{item.post_id}}' bindtap='ondetail'>
+      <text class='comment-content-user-name'>{{item.post.user.nickname}}：</text>
+      <text class='comment-content-desc'>{{item.post.content}}</text>
+    </view>
+  </view>
+  </block>
+  <view class='more-text' wx:if="{{like == '' || comment == ''}}">暂无动态...</view>
+</view>

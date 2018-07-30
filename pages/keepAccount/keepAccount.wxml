@@ -1,0 +1,82 @@
+<view class='keepaccount-main' hidden='{{loading}}'>
+   <view class='tab-box'>
+    <view class="tab-nav {{curIndex === 0 ?'on':''}}" bindtap="onTab" data-index="0">支出</view>
+    <view class="tab-nav {{curIndex === 1 ?'on':''}}" bindtap="onTab" data-index="1">收入</view>
+  </view>
+  <view class='tab-content'>
+    <form bindsubmit='onSubmit'>
+      <view wx:if="{{curIndex === 0}}">
+        <view class='outcome-box'>
+          <view class='input-box'>
+            <text>{{category_name}}</text>
+            <input class='outcome-input' name="spendinginput" type='digit' confirm-type='next' placeholder='￥0.00' bindinput='spendinginput'/>
+          </view>
+          <view class='outcome-type-box'>
+            <block wx:for="{{spending}}">
+            <view class='outcome-item'>
+              <image class='type-img' data-itemid='{{item.id}}' data-imgid='{{item.icon[1].id}}' data-name='{{item.category_name}}' hidden='{{click==item.icon[1].id}}' src="{{ImageUrl+item.icon[1].url}}" bindtap='onChangeImg'></image>
+              <image class='type-img' data-itemid='{{item.id}}' data-imgid='{{item.icon[1].id}}' data-name='{{item.category_name}}' hidden='{{!(click==item.icon[1].id)}}' src="{{ImageUrl+item.icon[0].url}}" bindtap='onChangeImg'></image>
+              <text class='type-name'>{{item.category_name}}</text>
+            </view>
+            </block>
+            <view class='outcome-item' wx:if="{{single != null }}">
+              <image class='type-img' data-itemid='{{single.id}}' data-imgid='{{single.icon[1].id}}' data-name='{{single.category_name}}' hidden='{{click==single.icon[1].id}}' src="{{ImageUrl+single.icon[1].url}}" bindtap='onChangeImg'></image>
+              <image class='type-img' data-itemid='{{single.id}}' data-imgid='{{single.icon[1].id}}' data-name='{{single.category_name}}' hidden='{{!(click==single.icon[1].id)}}' src="{{ImageUrl+single.icon[0].url}}" bindtap='onChangeImg'></image>
+                <text class='type-name'>{{single.category_name}}</text>
+            </view>
+            <view class='outcome-item' bindtap='ondetailType'>
+              <image class='type-img' src='../../images/add.png'></image>
+              <text class='type-name'>更多</text>
+            </view>
+          </view>
+          <view class='remarks-box'>
+            <textarea class='remarks-text' placeholder='备注:' type='text' confirm-type='done' name="remarks" bindinput='remarksinput' maxlength='255'></textarea>
+          </view>
+          <view class='btn-box'>
+            <button class='onceagain-btn' formType="submit">再记一笔</button>
+            <button class='save-btn' bindtap='onSave'>保存</button>
+          </view>
+        </view>
+      </view>
+    </form>
+    <view wx:if="{{curIndex === 1}}">
+       <form bindsubmit='onIncome'>
+        <view class='outcome-box'>
+          <view class='input-box'>
+            <text>{{category_name}}</text>
+            <input class='outcome-input' name="spendinginput" type='digit' confirm-type='done'  placeholder='￥0.00' bindinput='spendinginput'/>
+          </view>
+          <view class='outcome-type-box'>
+            <block wx:for="{{spending}}">
+            <view class='outcome-item'>
+              <image class='type-img' data-itemid='{{item.id}}' data-imgid='{{item.icon[1].id}}' data-name='{{item.category_name}}' hidden='{{click==item.icon[1].id}}' src="{{ImageUrl+item.icon[1].url}}" bindtap='onChangeImg'></image>
+              <image class='type-img' data-itemid='{{item.id}}' data-imgid='{{item.icon[1].id}}' data-name='{{item.category_name}}' hidden='{{!(click==item.icon[1].id)}}' src="{{ImageUrl+item.icon[0].url}}" bindtap='onChangeImg'></image>
+              <text class='type-name'>{{item.category_name}}</text>
+            </view>
+            </block>
+            <view class='outcome-item' wx:if="{{single != null }}">
+              <image class='type-img' data-itemid='{{single.id}}' data-imgid='{{single.icon[1].id}}' data-name='{{single.category_name}}' hidden='{{click==single.icon[1].id}}' src="{{ImageUrl+single.icon[1].url}}" bindtap='onChangeImg'></image>
+              <image class='type-img' data-itemid='{{single.id}}' data-imgid='{{single.icon[1].id}}' data-name='{{single.category_name}}' hidden='{{!(click==single.icon[1].id)}}' src="{{ImageUrl+single.icon[0].url}}" bindtap='onChangeImg'></image>
+               <text class='type-name'>{{single.category_name}}</text>
+            </view>
+            <view class='outcome-item' bindtap='ondetailType'>
+              <image class='type-img' src='../../images/add.png'></image>
+              <text class='type-name'>更多</text>
+            </view>
+          </view>
+          <view class='remarks-box'>
+            <textarea class='remarks-text' placeholder='备注:' type='text' confirm-type='done' name="remarks" bindinput='remarksinput' maxlength='255'></textarea>
+          </view>
+          <view class='btn-box'>
+            <button class='onceagain-btn' formType="submit">再记一笔</button>
+            <button class='save-btn' bindtap='onIncomeSave'>保存</button>
+          </view>
+        </view>
+
+    </form>
+    </view>
+  </view>
+</view>
+<loading hidden="{{!loading}}">
+    加载中...
+</loading>

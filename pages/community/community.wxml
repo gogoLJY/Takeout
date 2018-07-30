@@ -1,0 +1,68 @@
+<view class='community-main' hidden='{{loading}}'>
+  <view class='community-top'>
+    <view class='news-box'>
+      <image src='../../images/news.png' class="news-img {{hidePoint == true? '':'item-active'}}" bindtap='onreplyComment'></image>
+    </view>
+    <view class='user-box'>
+       <view class='user-content'>
+        <view class='avatar'>
+          <open-data type="userAvatarUrl"></open-data>
+        </view>
+        <view class='info-box'>
+          <view class='nickname'>
+            <open-data type="userNickName"></open-data>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <block wx:for="{{community}}" >
+  <view class='community-item'>
+    <view class='community-item-top' data-id='{{item.id}}' bindtap='onDetailcomment'>
+      <image src='{{item.user.avatar}}' class='publisher-img'></image>
+      <view class='item-desc'>
+        <text class='publisher-name'>{{item.user.nickname}}</text>
+        <text class='desc-content'>{{item.content}}</text>
+      </view>
+    </view>
+    <scroll-view class="image-group" scroll-x="true" >
+      <block wx:for="{{item.image}}" wx:for-index="picturesIndex">
+        <image src="{{item.url}}" class='scroll-item-img' data-postid='{{item.post_id}}' data-src='{{item.url}}' bindtap='onPreviewImage' mode="aspectFill" bindlongtap='saveImage'></image>
+      </block>
+    </scroll-view>
+    <text class='community-time'>{{item.time}}</text>
+    <view class='line'></view>
+    <view class='community-item-footer'>
+      <view class='browse-box'>
+        <image src='../../images/browse.png' class='browse-img'></image>
+        <text class='visit-text'>{{item.view}}访问</text>
+      </view>
+      <view class='community-item-footer-right'>
+        <view class='like-box'>
+          <image src='../../images/like.png' hidden='{{item.isLike == 1}}' data-postid='{{item.id}}' class='like-img' bindtap='onLike'></image>
+          <image src='../../images/like_active.png' hidden='{{!(item.isLike == 1)}}' class='like-img' bindtap='onLikeActive'></image>
+          <text class='like-num'>{{item.like_count}}</text>
+        </view>
+        <view class='comment-box' bindtap='onComment' data-postid='{{item.id}}'>
+          <image src='../../images/comment.png' class='comment-img'></image>
+          <text class='comment-num'>{{item.comments_count}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  </block>
+  <view class='public-box'>
+    <view bindtap='onChangeImg' wx:if="{{buttonIndex === 1}}">
+      <image src='../../images/public.png' class='public-img'></image>
+    </view>
+    <view class='mask' hidden='{{hideMask}}'></view>
+    <view class='menu-box' bindtap='onCloseImg' wx:if="{{buttonIndex === 2}}">
+      <image src='../../images/publicImg.png' class='public-img publicImg' bindtap='onPublicImg'></image>
+      <image src='../../images/publicLetter.png' class='public-img publicLetter' bindtap='onPublicLetter'></image>
+      <image src='../../images/close.png' class='public-img close-img'></image>
+    </view>
+  </view>
+</view>
+<loading hidden='{{!loading}}'>
+  加载中...
+</loading>

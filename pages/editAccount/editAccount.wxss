@@ -1,0 +1,79 @@
+.edit-top{
+  position: relative;
+  height: 140rpx;
+	background-color: #538afe;
+  color: #333;
+}
+.edit-card{
+  width: 700rpx;
+  position: absolute;
+  top: 40rpx;
+  left: 25rpx;
+	min-height: 700rpx;
+	background-color: #ffffff;
+	box-shadow: 0 7rpx 14rpx 0 rgba(185, 185, 185, 0.39);
+	border-radius: 15rpx;
+  padding: 40rpx 0 59rpx 0;
+  text-align: center;
+}
+.edit-img{
+  width: 130rpx;
+  height: 130rpx;
+}
+.type-name{
+  font-size: 30rpx;
+  margin-top: 40rpx;
+}
+.edit-card-middle,.edit-card-top{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.line{
+  margin: 40rpx 0;
+  opacity: .4;
+  border-bottom: 1px solid #b1b8bf;
+}
+.middle-text{
+  font-size: 28rpx;
+}
+.middle-price{
+  display: block;
+  margin-top: 20rpx;
+  font-size: 72rpx;
+  height: 68rpx;
+  padding: 20rpx 0 0 0;
+  text-align: center;
+}
+.edit-card-footer{
+  margin-top: 131rpx;
+}
+.edit-item{
+  height: 68rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:0 40rpx;
+}
+.edit-item:not(:first-of-type){
+  margin-top: 10rpx;
+}
+input::placeholder,.time-input{
+  color: #999;
+}
+textarea {
+  width: 400rpx;
+}
+.primary-text {
+  width: 80rpx;
+  text-align: left;
+}
+.edit-input{
+  height: 68rpx;
+  text-align: right;  
+}
+.edit-footer{
+  padding: 0 20rpx;
+  margin: 900rpx 0 0 0;
+}

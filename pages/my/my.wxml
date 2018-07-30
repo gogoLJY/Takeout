@@ -1,0 +1,41 @@
+<!--pages/user/index.wxml-->
+<view class='my-main'>
+  <view>
+    <view class='user-box' style="background-image: url('https://x2018062501.aweyu.cn/static/image/background.jpg')">
+    
+      <view class='avatar'>
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <view class='info-box'>
+        <view class='nickname'>
+          <open-data type="userNickName"></open-data>
+        </view>
+      </view>
+    </view>
+    <!-- me-btns list-->
+    <view class='me-btns'>
+      <view class='me-btns-item' bindtap='onOpinionTap'>
+        <view class='opinion-left'>
+          <image src='../../images/opinion.png' class='me-img'></image>
+          <text>意见反馈</text>
+        </view>
+        <view class='icon'></view>
+      </view>
+      <view class='me-btns-item' bindtap='onClearStorageTap'>
+        <view class='opinion-left'>
+          <image src='../../images/clearStorage.png' class='me-img'></image>
+          <text>清除缓存</text>
+        </view>
+        <view class='icon'></view>
+      </view>
+     
+    </view>
+     <view class='me-btns-item about-item' bindtap='onAboutTap'>
+        <view class='opinion-left'>
+          <image src='../../images/aboutUs.png' class='me-img'></image>
+          <text>关于李才人</text>
+        </view>
+        <view class='icon'></view>
+      </view>
+  </view>
+</view>
